@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "devemg-f044d"
+  },
+  "targets": {
+    "devemg-f044d": {
+      "hosting": {
+        "g-app-tech": [
+          "g-app-tech"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

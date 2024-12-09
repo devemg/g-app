@@ -1,0 +1,14 @@
+{
+  "hosting": {
+    "target": "g-app-tech", 
+    "public": "dist/g-app/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "frameworksBackend": {
+      "region": "us-central1"
+    }
+  }
+}
