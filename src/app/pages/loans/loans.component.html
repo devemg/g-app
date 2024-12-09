@@ -1,0 +1,30 @@
+<div class="loans">
+    <div class="loans-filters">
+        <div class="filter-type" [ngClass]="{'active': filterType === 'individual'}" (click)="updateFilterType('individual')">
+            <div class="filter-type-icon">
+                <img src="../../../assets/images/loan-individual.svg" alt="">
+            </div>
+            <p>
+              Préstamos individuales  
+            </p>
+        </div>
+        <div class="filter-type" [ngClass]="{'active': filterType === 'group'}" (click)="updateFilterType('group')">
+            <div class="filter-type-icon">
+                <img src="../../../assets/images/loan-group.svg" alt="">
+            </div>
+            <p>
+              Préstamos Grupales  
+            </p>
+        </div>
+    </div>
+    <div class="loans-filters">
+        <div class="filter-pill" [ngClass]="{'active': filterStatus === 'all'}" (click)="updateFilterStatus('all')">Todos</div>
+        <div class="filter-pill" [ngClass]="{'active': filterStatus === 'active'}" (click)="updateFilterStatus('active')">Activos</div>
+        <div class="filter-pill" [ngClass]="{'active': filterStatus === 'cancelled'}" (click)="updateFilterStatus('cancelled')">Cancelados</div>
+    </div>
+   <div class="loans-list">
+    @for (item of filteredLoans; track $index) {
+        <app-loan-card [loan]="item" [showDetails]="true"></app-loan-card>
+    }
+   </div>
+</div>

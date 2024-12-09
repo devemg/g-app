@@ -1,0 +1,25 @@
+<div class="loan" [ngClass]="{ 'group': loan?.type === 'group', 'delinquent': loan?.status === 'delinquent', 'cancelled': loan?.status === 'paid' }" 
+(click)="manageRedirection()">
+        @if (loan) {
+            @if (showTitle) {
+                <p class="loan-title">{{ loan.name ? loan.name : 'Préstamo No.' + loan.loanId }}</p>
+            }
+            <p class="loan-amount">Monto Pendiente: <span>Q. {{ loan.remainingAmount }}</span></p>
+            <p class="loan-amount">Próximo pago: <span>Q. {{ loan.installmentAmount }}</span></p>
+            <p class="loan-date">Próxima fecha de Pago: <span>{{ loan.nextPaymentDate | date: 'dd/MM/yyyy' }}</span></p>
+            @if (showDetails) {
+                <p class="loan-status">Estado: <span>{{ loan.status === 'paid' ? 'Inactivo' : 'Activo' }}</span></p>
+                <p class="loan-date">Fecha Estimada de Fin: <span>{{ loan.endDate | date: 'dd/MM/yyyy' }}</span></p>
+                <p class="loan-status"><span>{{ loan.status === 'delinquent' ? 'Este préstamo se encuentra en mora' : '' }}</span></p>
+            }
+            @if (showType) {
+                <p class="loan-status">Tipo: <span>{{ loan.type === 'group' ? 'Grupal' : 'Individual' }}</span></p>
+            }
+            @if (showNotes) {
+                <p class="loan-status">Garantía: {{ loan.collateral ? loan.collateral : 'NA' }}</p>
+                @if (loan.notes) {
+                    <p class="loan-status">Notes: {{ loan.notes }}</p>
+                }
+            }
+        }
+</div>

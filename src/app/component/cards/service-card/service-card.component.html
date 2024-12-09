@@ -1,0 +1,34 @@
+<div class="service"
+[ngClass]="{ 'cancelled' : service?.status === 'cancelled' }"
+(click)="togglePayButton()">
+    @if(service) {
+        @switch (service.type) {
+            @case ('insurance-health') {
+                <img src="../../../../assets/images/service-health.svg" alt="">
+              }
+              @case ('insurance-car') {
+                <img class="icon-car" src="../../../../assets/images/service-car.svg" alt="">
+              }
+              @case ('phone') {
+                <img class="icon-phone" src="../../../../assets/images/service-phone.svg" alt="">
+              }
+              @default {
+                <img class="icon-box" src="../../../../assets/images/service-box.svg" alt="">
+              }
+        }
+    }
+    <div class="service-info">
+        @if (service) {
+            <p class="service-title">{{ service.name ? service.name : 'Servicio No.' + service.serviceId }}</p>
+                <p class="service-amount">Próximo pago: <span>Q. {{ service.price }}</span></p>
+                <p class="service-date">Próxima fecha de Pago: <span>{{ service.nextPaymentDate | date: 'dd/MM/yyyy' }}</span></p>
+                @if (showStatus) {
+                  <p class="service-status">Estado: <span>{{ service.status === 'cancelled' ? 'Cancelado' : 'Activo' }}</span></p>
+
+                }
+        }
+        @if (showPayButton && service?.status === 'contracted') {
+          <button class="outlined-button" [routerLink]="['/payment']">Pagar</button>
+        }
+    </div>
+</div>

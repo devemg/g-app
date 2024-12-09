@@ -1,0 +1,35 @@
+.loan {
+    padding: 2rem;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #fb8500;
+    
+    background-image: url('../../../../assets/images/money.svg');
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 160px;
+
+    &.group {
+        background-image: url('../../../../assets/images/money-bag.svg');
+        background-size: 145px;
+    }
+
+    &.delinquent {
+        background-color: #C22000;
+    }
+
+    &.cancelled {
+        background-color: #616161;
+    }
+
+    p {
+        margin: 0;
+        color: #FDFDFD;
+        font-size: 15px;
+    }
+
+    &-title,
+    span {
+        font-weight: bold;
+    }
+}

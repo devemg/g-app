@@ -1,0 +1,12 @@
+<div class="services">
+    <div class="services-filters">
+        <div class="filter-pill" [ngClass]="{'active': filterStatus === 'all'}" (click)="updateFilterStatus('all')">Todos</div>
+        <div class="filter-pill" [ngClass]="{'active': filterStatus === 'contracted'}" (click)="updateFilterStatus('contracted')">Activos</div>
+        <div class="filter-pill" [ngClass]="{'active': filterStatus === 'cancelled'}" (click)="updateFilterStatus('cancelled')">Cancelados</div>
+    </div>
+    <div class="services-list">
+        @for (item of filteredServices; track $index) {
+            <app-service-card [service]="item" [showStatus]="true"></app-service-card>
+        }
+       </div>
+</div>

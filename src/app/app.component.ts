@@ -1,13 +1,39 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { filter, map, mergeMap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'g-app';
+  showNavbar = false;
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      map(() => this.rootRoute(this.activatedRoute)),
+      filter((route: ActivatedRoute) => route.outlet === 'primary'),
+      mergeMap((route: ActivatedRoute) => route.data)
+    ).subscribe((event: any) => {
+      this.showNavbar = !event.hideNavbar;
+    });
+  }
+
+  /**
+   * Find the last activated route
+   *
+   * @param route 
+   * @returns 
+ */
+  private rootRoute(route: ActivatedRoute): ActivatedRoute {
+    while (route.firstChild) {
+      route = route.firstChild;
+    }
+    return route;
+  }
 }

@@ -1,0 +1,33 @@
+<div class="login">
+    <img class="login-logo" src="../../assets/images/logo.svg" alt="G Logo">
+    @if (!showVerification) {
+        <form [formGroup]="loginForm" (submit)="manageLogin()">
+            <div class="form-field" >
+                <label for="cui">DPI</label>
+                <input formControlName="cui" type="text" autocomplete="off" name="cui" id="cui" placeholder="DPI">
+            </div>
+            <div class="form-field">
+                <label for="password">Contraseña</label>
+                <input formControlName="password" type="password" name="password" id="password" placeholder="Contraseña">
+            </div>
+            <div class="form-field">
+                <button type="submit" class="primary-button" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+            </div>
+        </form>
+    } @else { 
+        <form [formGroup]="verificationForm" (submit)="manageVerification()">
+            <div class="form-field" >
+                <label for="cui">Código de Verificación</label>
+                <input formControlName="code" type="text" autocomplete="off" name="code" id="code" placeholder="Code">
+            </div>
+            <div class="form-field">
+                <button type="submit" class="primary-button" [disabled]="verificationForm.invalid">Verificar</button>
+            </div>
+            <div class="form-field">
+                <button type="button" class="accent-button fp-button" (click)="verifyWithFP()">
+                    <img src="../../../../assets/icons/finger-print.svg" alt="">
+                </button>
+            </div>
+        </form>
+    }
+</div>

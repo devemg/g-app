@@ -1,0 +1,48 @@
+.service {
+    padding: 2rem 2rem 2rem 0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #ffb703;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    &.cancelled {
+        background-color: #616161;
+    }
+
+    &-image {
+        width: 50px;
+    }
+
+    .outlined-button {
+        border-color: #FDFDFD;
+        color: #FDFDFD;
+        width: 100%;
+        padding: 0.5rem 1rem;
+        margin-top: 1rem;
+    }
+
+    p {
+        margin: 0;
+        color: #FDFDFD;
+        font-size: 15px;
+    }
+
+    &-title,
+    span {
+        font-weight: bold;
+    }
+}
+
+.icon-box {
+    margin-left: 1rem;
+}
+
+.icon-car {
+    margin-left: 0.5rem;
+}
+
+.icon-phone {
+    margin-left: 0.5rem;
+}

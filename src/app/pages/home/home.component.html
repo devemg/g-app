@@ -1,0 +1,15 @@
+<div class="home">
+    <h2>Préstamos Activos</h2>
+   <div class="home-list">
+    @for (item of loans; track $index) {
+        <app-loan-card [loan]="item"></app-loan-card>
+    }
+   </div>
+
+   <h2>Servicios Activos</h2>
+   <div class="home-list">
+    @for (item of services; track $index) {
+        <app-service-card [service]="item"></app-service-card>
+    }
+   </div>
+</div>

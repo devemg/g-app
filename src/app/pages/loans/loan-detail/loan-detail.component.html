@@ -1,0 +1,33 @@
+<div class="loan">
+    @if (loanInfo) {
+        <h2 class="loan-title"> <img src="../../../../assets/icons/back.svg" alt="" (click)="goBack()"> {{ loanInfo.name ? loanInfo.name : 'Préstamo No.' + loanInfo.loanId }}</h2>
+        <app-loan-card [loan]="loanInfo" [showDetails]="true" [showNotes]="true" [showType]="true" [showTitle]="false"></app-loan-card>
+        <h2>Plan de Pagos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <td>No. </td>
+                    <td>Cuota</td>
+                    <td>Total</td>
+                    <td>Acciones</td>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of pays; track $index) {
+                    <tr>
+                        <td>{{item.number}}.</td>
+                        <td>Q. {{ item.amount.toFixed(2) }}</td>
+                        <td>Q. {{ item.totalAmount.toFixed(2) }}</td>
+                        <td><button class="accent-button" [routerLink]="['/payment']">Pagar</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <h2>Servicios Asociados</h2>
+        <div class="loan-list">
+            @for (item of services; track $index) {
+                <app-service-card [service]="item"></app-service-card>
+            }
+           </div>
+    }
+</div>

@@ -1,0 +1,21 @@
+nav {
+    background-color: #219ebc;
+    color: #f0f0f0;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+
+    .logo {
+        width: 55px;
+        height: 55px;
+    }
+
+    .icon-menu {
+        width: 35px;
+        height: 35px;
+        background: url('../../../assets/icons/menu.svg') no-repeat right center;
+        background-size: cover;
+    }
+}

@@ -1,0 +1,17 @@
+.payment {
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+
+    h4 {
+        margin: 0;
+    }
+    button {
+        width: 100%;
+    }
+}
