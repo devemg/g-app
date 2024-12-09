@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IService } from '../../../models/IService';
+import { IService } from '../../models/IService';
 import { DatePipe, NgClass } from '@angular/common';
 import { RouterModule } from '@angular/router';
 

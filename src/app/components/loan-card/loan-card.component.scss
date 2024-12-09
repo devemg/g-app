@@ -4,13 +4,13 @@
     box-sizing: border-box;
     background-color: #fb8500;
     
-    background-image: url('../../../../assets/images/money.svg');
+    background-image: url('../../../assets/images/money.svg');
     background-repeat: no-repeat;
     background-position: right top;
     background-size: 160px;
 
     &.group {
-        background-image: url('../../../../assets/images/money-bag.svg');
+        background-image: url('../../../assets/images/money-bag.svg');
         background-size: 145px;
     }
 

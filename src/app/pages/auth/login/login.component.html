@@ -3,22 +3,30 @@
     @if (!showVerification) {
         <form [formGroup]="loginForm" (submit)="manageLogin()">
             <div class="form-field" >
-                <label for="cui">DPI</label>
                 <input formControlName="cui" type="text" autocomplete="off" name="cui" id="cui" placeholder="DPI">
+               @if (!loginControls['cui'].pristine && loginControls['cui'].getError('minlength')) {
+                <span class="error-message" >El número de DPI debe contener 13 dígitos</span>
+               } @else if (!loginControls['cui'].pristine && loginControls['cui'].getError('pattern')) {
+                <span class="error-message" >El número de DPI debe contener solo números</span>
+               }
             </div>
             <div class="form-field">
-                <label for="password">Contraseña</label>
                 <input formControlName="password" type="password" name="password" id="password" placeholder="Contraseña">
+                @if (!loginControls['password'].pristine && loginControls['password'].getError('minlength')) {
+                    <span class="error-message" >La Contraseña debe contener por lo menos 5 dígitos</span>
+                   }
             </div>
             <div class="form-field">
-                <button type="submit" class="primary-button" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+                <button type="submit" class="primary-button">Iniciar Sesión</button>
             </div>
         </form>
     } @else { 
         <form [formGroup]="verificationForm" (submit)="manageVerification()">
-            <div class="form-field" >
-                <label for="cui">Código de Verificación</label>
+            <div class="form-field code" >
                 <input formControlName="code" type="text" autocomplete="off" name="code" id="code" placeholder="Code">
+                @if (!verificationControls['code'].pristine && verificationControls['code'].getError('minlength')) {
+                    <span class="error-message" >El código debe contener por lo menos 6 dígitos</span>
+                   }
             </div>
             <div class="form-field">
                 <button type="submit" class="primary-button" [disabled]="verificationForm.invalid">Verificar</button>

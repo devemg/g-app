@@ -2,6 +2,16 @@
     <nav>
         <div class="logo"></div>
     
-        <div class="icon icon-menu"></div>
+        <div class="icon icon-menu" (click)="toggleSlideMenu()"></div>
+        <div class="menu outside" *ngIf="showSlideMenu" [@slideInOut] (click)="manageClick($event)">
+            <div  class="menu-content">
+                <div class="logo menu-logo"></div>
+                <ul>
+                    <li (click)="goTo('/loans')">Préstamos</li>
+                    <li (click)="goTo('/services')">Servicios</li>
+                    <li (click)="logout()">Salir</li>
+                </ul>
+            </div>
+        </div>
     </nav>
 }

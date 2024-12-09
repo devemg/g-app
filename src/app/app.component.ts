@@ -12,6 +12,7 @@ import { filter, map, mergeMap } from 'rxjs';
 })
 export class AppComponent {
   showNavbar = false;
+  showSplash = true;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this.router.events.pipe(
@@ -22,6 +23,9 @@ export class AppComponent {
     ).subscribe((event: any) => {
       this.showNavbar = !event.hideNavbar;
     });
+    setTimeout(() => {
+      this.showSplash = false;
+    }, 5000);
   }
 
   /**

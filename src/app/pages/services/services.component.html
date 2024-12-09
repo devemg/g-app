@@ -1,6 +1,7 @@
 <div class="services">
     <div class="services-filters">
         <div class="filter-pill" [ngClass]="{'active': filterStatus === 'all'}" (click)="updateFilterStatus('all')">Todos</div>
+        <div class="filter-pill" [ngClass]="{'active': filterStatus === 'available'}" (click)="updateFilterStatus('available')">Disponibles</div>
         <div class="filter-pill" [ngClass]="{'active': filterStatus === 'contracted'}" (click)="updateFilterStatus('contracted')">Activos</div>
         <div class="filter-pill" [ngClass]="{'active': filterStatus === 'cancelled'}" (click)="updateFilterStatus('cancelled')">Cancelados</div>
     </div>

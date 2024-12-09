@@ -6,6 +6,14 @@
         display: flex;
         gap: 1rem;
         margin-bottom: 1rem;
+        overflow: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+            /*chrome mozilla */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+          }
     }
 
     &-list {

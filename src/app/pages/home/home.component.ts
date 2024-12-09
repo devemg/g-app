@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { LoanService } from '../../services/loans/loans.service';
 import { ILoan } from '../../models/ILoan';
-import { LoanCardComponent } from '../../component/cards/loan-card/loan-card.component';
+import { LoanCardComponent } from '../../components/loan-card/loan-card.component';
 import { ServiceService } from '../../services/services/services.service';
 import { IService } from '../../models/IService';
-import { ServiceCardComponent } from '../../component/cards/service-card/service-card.component';
+import { ServiceCardComponent } from '../../components/service-card/service-card.component';
 
 @Component({
   selector: 'app-home',

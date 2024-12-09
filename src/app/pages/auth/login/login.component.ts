@@ -16,12 +16,20 @@ export class LoginComponent {
   showVerification = false;
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.formBuilder.group({
-      cui: ['', [Validators.required, Validators.minLength(5)]],
+      cui: ['', [Validators.required, Validators.minLength(13), Validators.pattern('[0-9]+')]],
       password: ['', [Validators.required, Validators.minLength(5)]],
     });
     this.verificationForm = this.formBuilder.group({
       code: ['', [Validators.required, Validators.minLength(6)]]
     });
+  }
+
+  get loginControls() {
+    return this.loginForm.controls;
+  }
+
+  get verificationControls() {
+    return this.verificationForm.controls
   }
 
   manageLogin() {
@@ -40,6 +48,7 @@ export class LoginComponent {
     if (this.verificationForm.valid) {
       const { code } = this.verificationForm.value;
       this.authService.verify(code).then(()=> {
+        localStorage.setItem('userLogged', 'true');
         this.router.navigate(['/home']);
       })
       .catch((e)=> {

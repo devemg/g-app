@@ -59,6 +59,24 @@ export class ServiceService {
         "price": 50,
         "status": "cancelled",
         "nextPaymentDate": new Date()
+      },
+      {
+        "serviceId": "S005",
+        "name": "Notificaciones SMS",
+        "type": "other",
+        "description": "Notificaciones SMS de movimientos",
+        "price": 10,
+        "status": "available",
+        "nextPaymentDate": new Date()
+      },
+      {
+        "serviceId": "S006",
+        "name": "Notificaciones Email",
+        "type": "other",
+        "description": "Notificaciones email de movimientos",
+        "price": 10,
+        "status": "available",
+        "nextPaymentDate": new Date()
       }
     ]
     )

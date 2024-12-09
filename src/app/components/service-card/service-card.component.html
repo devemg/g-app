@@ -21,14 +21,16 @@
         @if (service) {
             <p class="service-title">{{ service.name ? service.name : 'Servicio No.' + service.serviceId }}</p>
                 <p class="service-amount">Próximo pago: <span>Q. {{ service.price }}</span></p>
-                <p class="service-date">Próxima fecha de Pago: <span>{{ service.nextPaymentDate | date: 'dd/MM/yyyy' }}</span></p>
+                @if(service.nextPaymentDate) {
+                  <p class="service-date">Próxima fecha de Pago: <span>{{ service.nextPaymentDate | date: 'dd/MM/yyyy' }}</span></p>
+                }
                 @if (showStatus) {
                   <p class="service-status">Estado: <span>{{ service.status === 'cancelled' ? 'Cancelado' : 'Activo' }}</span></p>
 
                 }
         }
-        @if (showPayButton && service?.status === 'contracted') {
-          <button class="outlined-button" [routerLink]="['/payment']">Pagar</button>
+        @if (showPayButton && (service?.status === 'contracted' || service?.status === 'available')) {
+          <button class="outlined-button" [routerLink]="['/payment']">{{ service?.status === 'contracted' ? 'Pagar' : 'Contratar' }}</button>
         }
     </div>
 </div>

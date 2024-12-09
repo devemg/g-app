@@ -1,5 +1,5 @@
 import { NgClass, NgStyle } from '@angular/common';
-import { LoanCardComponent } from '../../component/cards/loan-card/loan-card.component';
+import { LoanCardComponent } from '../../components/loan-card/loan-card.component';
 import { ILoan } from '../../models/ILoan';
 import { LoanService } from './../../services/loans/loans.service';
 import { Component } from '@angular/core';

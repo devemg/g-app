@@ -3,10 +3,10 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { map } from 'rxjs';
 import { LoanService } from '../../../services/loans/loans.service';
 import { ILoan } from '../../../models/ILoan';
-import { LoanCardComponent } from '../../../component/cards/loan-card/loan-card.component';
+import { LoanCardComponent } from '../../../components/loan-card/loan-card.component';
 import { Location } from '@angular/common';
 import { IService } from '../../../models/IService';
-import { ServiceCardComponent } from '../../../component/cards/service-card/service-card.component';
+import { ServiceCardComponent } from '../../../components/service-card/service-card.component';
 
 @Component({
   selector: 'app-loan-detail',

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { IService } from '../../models/IService';
-import { ServiceCardComponent } from '../../component/cards/service-card/service-card.component';
+import { ServiceCardComponent } from '../../components/service-card/service-card.component';
 import { ServiceService } from '../../services/services/services.service';
 
-type FilterStatus = 'all' | 'contracted' | 'cancelled';
+type FilterStatus = 'all' | 'contracted' | 'cancelled' | 'available';
 
 @Component({
   selector: 'app-services',

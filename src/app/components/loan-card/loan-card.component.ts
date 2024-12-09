@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ILoan } from '../../../models/ILoan';
+import { ILoan } from '../../models/ILoan';
 import { DatePipe, NgClass } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 

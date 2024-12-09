@@ -1,18 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-:host {
-    --sky-color: #8ecae6;
-    --blue-color: #219ebc;
-    --dark-blue-color: #023047;
-    --yelllow-color: #ffb703;
-    --orange-color: #fb8500;
-}
-
 body {
     margin: 0;
     box-sizing: border-box;
     color: #1c1c1c;
     background-color: #FDFDFD;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    @media only screen and (min-width: 992px) {
+            overflow: hidden !important;
+        }
 }
 
 button {
@@ -22,7 +17,7 @@ button {
     padding: 1rem;
     border-radius: 8px;
     &:disabled {
-        opacity: 0.5;
+        background-color: gray;
     }
 }
 
